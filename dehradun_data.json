@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Robber's Cave (Guchhupani)",
+    "category": "Nature",
+    "ticket_cost": 50,
+    "time_hrs": 2.5,
+    "lat": 30.3783,
+    "lon": 78.0601,
+    "description": "Natural cave formation with cold water streams inside."
+  },
+  {
+    "id": 2,
+    "name": "Forest Research Institute (FRI)",
+    "category": "Heritage",
+    "ticket_cost": 150,
+    "time_hrs": 3.0,
+    "lat": 30.3415,
+    "lon": 78.0003,
+    "description": "Greco-Roman architecture with 6 forestry museums."
+  },
+  {
+    "id": 3,
+    "name": "Sahastradhara",
+    "category": "Nature",
+    "ticket_cost": 0,
+    "time_hrs": 2.0,
+    "lat": 30.3872,
+    "lon": 78.1311,
+    "description": "Sulphur water springs known for healing properties."
+  },
+  {
+    "id": 4,
+    "name": "Mindrolling Monastery (Clement Town)",
+    "category": "Peace",
+    "ticket_cost": 0,
+    "time_hrs": 1.5,
+    "lat": 30.2642,
+    "lon": 78.0076,
+    "description": "One of the largest Buddhist centers in India with Stupa."
+  },
+  {
+    "id": 5,
+    "name": "Tapkeshwar Mahadev Temple",
+    "category": "Heritage",
+    "ticket_cost": 0,
+    "time_hrs": 1.5,
+    "lat": 30.3553,
+    "lon": 78.0163,
+    "description": "Cave temple where water drips continuously on Shivling."
+  },
+  {
+    "id": 6,
+    "name": "Malsi Deer Park (Dehradun Zoo)",
+    "category": "Nature",
+    "ticket_cost": 30,
+    "time_hrs": 2.0,
+    "lat": 30.3934,
+    "lon": 78.0708,
+    "description": "Zoological park with deer, leopards, and bird aviary."
+  }
+]
