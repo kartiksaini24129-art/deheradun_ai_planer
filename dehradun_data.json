@@ -1,62 +1,92 @@
 [
   {
-    "id": 1,
     "name": "Robber's Cave (Guchhupani)",
     "category": "Nature",
-    "ticket_cost": 50,
-    "time_hrs": 2.5,
-    "lat": 30.3783,
-    "lon": 78.0601,
-    "description": "Natural cave formation with cold water streams inside."
+    "entry_fee": 35,
+    "rating": "4.6 / 5 ⭐",
+    "best_time": "Morning (9:00 AM - 12:00 PM)",
+    "food_spot": "Famous Local Maggi & Tibetan Momos stalls",
+    "weather_tip": "Water activity: Carry an extra pair of slippers or shoes."
   },
   {
-    "id": 2,
-    "name": "Forest Research Institute (FRI)",
-    "category": "Heritage",
-    "ticket_cost": 150,
-    "time_hrs": 3.0,
-    "lat": 30.3415,
-    "lon": 78.0003,
-    "description": "Greco-Roman architecture with 6 forestry museums."
-  },
-  {
-    "id": 3,
     "name": "Sahastradhara",
     "category": "Nature",
-    "ticket_cost": 0,
-    "time_hrs": 2.0,
-    "lat": 30.3872,
-    "lon": 78.1311,
-    "description": "Sulphur water springs known for healing properties."
+    "entry_fee": 50,
+    "rating": "4.3 / 5 ⭐",
+    "best_time": "Afternoon / Evening",
+    "food_spot": "Local Dhaba & Fresh fruit juices",
+    "weather_tip": "Sulfur springs are great for health, check water flow before entry."
   },
   {
-    "id": 4,
-    "name": "Mindrolling Monastery (Clement Town)",
-    "category": "Peace",
-    "ticket_cost": 0,
-    "time_hrs": 1.5,
-    "lat": 30.2642,
-    "lon": 78.0076,
-    "description": "One of the largest Buddhist centers in India with Stupa."
+    "name": "Mindroling Monastery",
+    "category": "Heritage",
+    "entry_fee": 0,
+    "rating": "4.8 / 5 ⭐",
+    "best_time": "Evening (2:00 PM - 6:00 PM)",
+    "food_spot": "Authentic Tibetan Cafe inside complex",
+    "weather_tip": "Peaceful place: Dress modestly and maintain silence."
   },
   {
-    "id": 5,
     "name": "Tapkeshwar Mahadev Temple",
     "category": "Heritage",
-    "ticket_cost": 0,
-    "time_hrs": 1.5,
-    "lat": 30.3553,
-    "lon": 78.0163,
-    "description": "Cave temple where water drips continuously on Shivling."
+    "entry_fee": 0,
+    "rating": "4.7 / 5 ⭐",
+    "best_time": "Morning",
+    "food_spot": "Traditional North Indian snacks near temple gate",
+    "weather_tip": "Cave temple with natural water dripping on Shivling."
   },
   {
-    "id": 6,
-    "name": "Malsi Deer Park (Dehradun Zoo)",
+    "name": "Forest Research Institute (FRI)",
+    "category": "Heritage",
+    "entry_fee": 50,
+    "rating": "4.8 / 5 ⭐",
+    "best_time": "Morning (9:30 AM - 1:00 PM)",
+    "food_spot": "FRI Campus Canteen & Cafes nearby on Chakrata Road",
+    "weather_tip": "Vast colonial architecture and museums; extensive walking required."
+  },
+  {
+    "name": "Malsi Deer Park",
     "category": "Nature",
-    "ticket_cost": 30,
-    "time_hrs": 2.0,
-    "lat": 30.3934,
-    "lon": 78.0708,
-    "description": "Zoological park with deer, leopards, and bird aviary."
+    "entry_fee": 20,
+    "rating": "4.2 / 5 ⭐",
+    "best_time": "Morning (10:00 AM - 1:00 PM)",
+    "food_spot": "Cafes along Mussoorie Road",
+    "weather_tip": "Great for families and wildlife sighting; shaded walkways."
+  },
+  {
+    "name": "Shikhar Fall",
+    "category": "Nature",
+    "entry_fee": 0,
+    "rating": "4.4 / 5 ⭐",
+    "best_time": "Morning to Afternoon",
+    "food_spot": "Small roadside tea and Maggi stalls",
+    "weather_tip": "Requires a short nature trek through stream beds; wear grip shoes."
+  },
+  {
+    "name": "Lachhiwala Nature Park",
+    "category": "Nature",
+    "entry_fee": 30,
+    "rating": "4.3 / 5 ⭐",
+    "best_time": "Morning (10:00 AM - 3:00 PM)",
+    "food_spot": "Local canteens and picnic snack stalls",
+    "weather_tip": "Man-made water pools fed by Song river; ideal for picnic and relaxation."
+  },
+  {
+    "name": "Asan Barrage Wetland",
+    "category": "Nature",
+    "entry_fee": 50,
+    "rating": "4.5 / 5 ⭐",
+    "best_time": "Morning (Best in winter for bird watching)",
+    "food_spot": "GMVN Tourist Rest House restaurant",
+    "weather_tip": "Great spot for water views and migratory birds; breezy environment."
+  },
+  {
+    "name": "Maldevta",
+    "category": "Nature",
+    "entry_fee": 0,
+    "rating": "4.5 / 5 ⭐",
+    "best_time": "Evening / Sunset",
+    "food_spot": "Riverside camping cafes and tea stalls",
+    "weather_tip": "Open valley with a river stream; avoid deep water during monsoons."
   }
 ]

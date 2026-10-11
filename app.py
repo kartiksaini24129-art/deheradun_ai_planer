@@ -1,78 +1,76 @@
-import streamlit as st
 import json
-import pandas as pd
+import streamlit as st
 
-# Page Configuration
-st.set_page_config(page_title="Dehradun AI Tour Planner", page_icon="🗺️", layout="wide")
+st.set_page_config(
+    page_title="Dehradun Smart AI Tour Planner", page_icon="🗺️"
+)
 
 st.title("🗺️ Dehradun Smart AI Tour Planner")
-st.caption("Science Exhibition Prototype | Hyper-Local Rules Engine & Budget Optimizer")
+st.caption(
+    "Science Exhibition Prototype | Hyper-Local Rules Engine & Budget Optimizer"
+)
+
 
 # 1. Load Custom Dehradun Dataset
 @st.cache_data
 def load_data():
-    with open('dehradun_data.json', 'r') as f:
-        return json.load(f)
+  with open("dehradun_data.json", "r", encoding="utf-8") as f:
+    data = json.load(f)
+  return data
+
 
 places = load_data()
 
 # Sidebar User Inputs
 st.sidebar.header("⚙️ Tour Parameters")
-budget = st.sidebar.slider("Maximum Ticket/Entry Budget (₹)", min_value=0, max_value=500, value=200, step=10)
+budget = st.sidebar.slider(
+    "Maximum Ticket/Entry Budget (₹)", min_value=0, max_value=300, value=200
+)
 days = st.sidebar.radio("Trip Duration", [1, 2])
-categories = st.sidebar.multiselect("Select Interests", ["Nature", "Heritage", "Peace"], default=["Nature", "Heritage"])
-pacing = st.sidebar.selectbox("Pacing Preference", ["Relaxed (Max 2 spots/day)", "Explorer (Max 4 spots/day)"])
+categories = st.sidebar.multiselect(
+    "Select Interests", ["Nature", "Heritage"], default=["Nature", "Heritage"]
+)
+pacing = st.sidebar.selectbox(
+    "Pacing Preference", ["Relaxed (Max 2 spots/day)", "Active"]
+)
 
-# 2. Logic Engine (Custom Algorithm - Non-ChatGPT)
+
+# 2. Logic Engine (Filter & Optimize)
 def generate_itinerary(places, budget, categories, pacing, days):
-    max_spots_per_day = 2 if "Relaxed" in pacing else 4
-    total_allowed_spots = max_spots_per_day * days
-    
-    # Filter 1: Preference Matching
-    filtered = [p for p in places if p["category"] in categories]
-    
-    # Filter 2: Sort by Value/Cost Ratio
-    filtered = sorted(filtered, key=lambda x: x["ticket_cost"])
-    
-    # Filter 3: Budget Constraint Solver
-    selected = []
-    current_cost = 0
-    
-    for spot in filtered:
-        if len(selected) < total_allowed_spots:
-            if current_cost + spot["ticket_cost"] <= budget:
-                selected.append(spot)
-                current_cost += spot["ticket_cost"]
-                
-    return selected, current_cost
+  # Filter by category and entry fee budget
+  filtered = [
+      p
+      for p in places
+      if p["category"] in categories and p["entry_fee"] <= budget
+  ]
 
-# Generate Itinerary Button Action
-if st.sidebar.button("🚀 Generate Itinerary"):
-    selected_spots, total_cost = generate_itinerary(places, budget, categories, pacing, days)
-    
-    if not selected_spots:
-        st.warning("No spots match your exact budget and preference filters. Try increasing budget or selecting more interests.")
-    else:
-        # Layout Columns
-        col1, col2 = st.columns([1, 1])
-        
-        with col1:
-            st.subheader("📌 Optimized Itinerary")
-            st.write(f"**Total Estimated Entry Cost:** ₹{total_cost} / ₹{budget}")
-            
-            for idx, spot in enumerate(selected_spots, 1):
-                with st.expander(f"Spot {idx}: {spot['name']} ({spot['category']})"):
-                    st.write(f"**Description:** {spot['description']}")
-                    st.write(f"**Entry Fee:** ₹{spot['ticket_cost']}")
-                    st.write(f"**Est. Time Required:** {spot['time_hrs']} hrs")
+  # Sort by entry fee
+  filtered = sorted(filtered, key=lambda x: x["entry_fee"])
 
-        with col2:
-            st.subheader("📍 Real-Time Location Map")
-            # Create Pandas DataFrame for Streamlit Map
-            map_data = pd.DataFrame([
-                {"name": s["name"], "lat": s["lat"], "lon": s["lon"]} for s in selected_spots
-            ])
-            st.map(map_data, zoom=11)
+  # Determine max spots based on duration and pacing
+  max_spots = days * 2 if "Relaxed" in pacing else days * 4
+  selected = filtered[:max_spots]
 
+  total_cost = sum(p["entry_fee"] for p in selected)
+  return selected, total_cost
+
+
+selected_spots, total_cost = generate_itinerary(
+    places, budget, categories, pacing, days
+)
+
+st.subheader(f"Total Estimated Entry Cost: ₹{total_cost} / ₹{budget}")
+
+if not selected_spots:
+  st.warning(
+      "Koi bhi spot aapke budget ya category match nahi kar raha. Parameters"
+      " change karein!"
+  )
 else:
-    st.info("👈 Set your preferences in the sidebar and click **Generate Itinerary** to test the prototype.")
+  for i, spot in enumerate(selected_spots, 1):
+    with st.expander(f"Spot {i}: {spot['name']} ({spot['category']})"):
+      st.write(f"💸 **Entry Fee:** ₹{spot['entry_fee']}")
+      st.write(f"⭐ **Rating:** {spot['rating']}")
+      st.write(f"⏰ **Best Time:** {spot['best_time']}")
+      st.write(f"🍽️ **Food Spot:** {spot['food_spot']}")
+      st.write(f"💡 **Weather Tip:** {spot['weather_tip']}")
